@@ -1,0 +1,27 @@
+[build]
+builder = "dockerfile"
+
+[deploy]
+startCommand = "/usr/local/bin/entrypoint.sh thelounge start"
+healthcheckPath = "/"
+healthcheckTimeout = 30
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 3
+
+[env]
+NODE_ENV = "production"
+SERVICE_NAME = "curia-irc-client"
+
+# Default configuration (can be overridden in Railway dashboard)
+IRC_HOST = "irc.curia.network"
+IRC_PORT = "6697"
+IRC_TLS = "true"
+IRC_REJECT_UNAUTHORIZED = "true"
+LOUNGE_HOST = "0.0.0.0"
+
+# These environment variables can be set in Railway dashboard:
+# IRC_HOST = "soju-service-internal-name"  # For Railway internal communication
+# IRC_PORT = "6697"
+# IRC_TLS = "true"
+# IRC_REJECT_UNAUTHORIZED = "false"  # Set to false for self-signed certs in dev
+# IRC_SASL = ""  # SASL mechanism if needed
