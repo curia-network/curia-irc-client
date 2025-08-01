@@ -20,8 +20,8 @@ RUN chmod +x /usr/local/bin/entrypoint.sh && \
 # Switch to node user
 USER node
 
-# Install theme using The Lounge's package manager
-RUN thelounge install thelounge-theme-monokai-console
+# Install custom Common Ground theme using The Lounge's package manager (proper way)
+RUN thelounge install thelounge-theme-cg
 
 # Set working directory
 WORKDIR /home/node

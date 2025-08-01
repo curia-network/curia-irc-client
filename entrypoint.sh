@@ -13,12 +13,14 @@ export IRC_REJECT_UNAUTHORIZED=${IRC_REJECT_UNAUTHORIZED:-"true"}
 export IRC_SASL=${IRC_SASL:-""}
 export PORT=${PORT:-"9000"}
 export LOUNGE_HOST=${LOUNGE_HOST:-"0.0.0.0"}
+export THELOUNGE_THEME=${THELOUNGE_THEME:-"thelounge-theme-cg"}
 
 echo "Configuration:"
 echo "  IRC Host: $IRC_HOST"
 echo "  IRC Port: $IRC_PORT"
 echo "  IRC TLS: $IRC_TLS"
 echo "  Lounge Port: $PORT"
+echo "  Theme: $THELOUNGE_THEME"
 
 # Ensure config directory exists and has correct permissions
 mkdir -p /home/node/.thelounge/logs
@@ -46,6 +48,6 @@ EOF
 
 echo "Integration loader created"
 
-# Start The Lounge
+# Start The Lounge with theme configuration
 echo "Starting The Lounge..."
-exec "$@"
+exec thelounge start -c "theme=$THELOUNGE_THEME"
