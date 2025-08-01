@@ -2,9 +2,7 @@
 builder = "dockerfile"
 
 [deploy]
-startCommand = "/usr/local/bin/entrypoint.sh thelounge start"
-healthcheckPath = "/"
-healthcheckTimeout = 30
+# Let Dockerfile handle startup - web IRC client, no health check needed
 restartPolicyType = "ON_FAILURE"
 restartPolicyMaxRetries = 3
 
