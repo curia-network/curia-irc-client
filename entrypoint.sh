@@ -50,4 +50,4 @@ echo "Integration loader created"
 
 # Start The Lounge with theme configuration
 echo "Starting The Lounge..."
-exec thelounge start -c "theme=$THELOUNGE_THEME"
+exec /app/thelounge/index.js start -c "theme=$THELOUNGE_THEME"
