@@ -6,6 +6,7 @@ RUN apk add --no-cache git python3 make g++
 
 # Clone and build our custom TheLounge with autoconnect
 WORKDIR /app
+ENV CACHE_BUST=2025-08-03-13-50
 RUN git clone https://github.com/curia-network/curia-irc-client-source.git thelounge
 WORKDIR /app/thelounge
 
